@@ -1,9 +1,11 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import { getMainViewRoute } from '../../constants/routes/routes';
 
 
 const Countrie = ({flag,nativeName,name,region,population,capital, subregion, topLevelDomain,currencies,languages,borders}) => {
 
+    const history = useHistory();
 
     const goBackHandler =() => {
         history.push(getMainViewRoute());
