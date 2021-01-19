@@ -4,6 +4,7 @@ import Dropdown from '../../components/dropdown/dropdown';
 import SearchBox from '../../components/searchBox/searchBox';
 import { allCountriesUrl, regionUrl } from '../../constants/services/services';
 import Header from '../header/header';
+import './stylee.scss';
 
 const MainView = () => {
 
@@ -13,7 +14,7 @@ const MainView = () => {
 
     useEffect(() => {
         fetchData();
-    }, [region])
+    }, [region]);
 
     useEffect(() => {
         if (search) {
@@ -23,7 +24,13 @@ const MainView = () => {
 
              setCountries(searched)
         }
-    }, [search])
+    }, [search]);
+
+    useEffect(() => {
+        if(search === ''){
+            fetchData();
+        }
+    },[]);
 
     const fetchData = () => {
         if (region === '' || region === 'All') {
@@ -68,21 +75,23 @@ const MainView = () => {
         <section className="section-main">
             <Header />
             <SearchBox 
-                placeholder="Search Country"
+                placeholder="Search for Country..."
                 onChange={searchHandler} />
                 
             <Dropdown onClick={regionHandler}/>
-            {countries.map((countrie) => {
-                        return(
-                            <AllCountries
-                                key={countrie.name} 
-                                name={countrie.name}
-                                capital={countrie.capital}
-                                region={countrie.region}
-                                population={countrie.population}
-                                flag={countrie.flag}
-                                />
-                        )})}
+            <div className="flex">
+                {countries.map((countrie) => {
+                            return(
+                                <AllCountries
+                                    key={countrie.name} 
+                                    name={countrie.name}
+                                    capital={countrie.capital}
+                                    region={countrie.region}
+                                    population={countrie.population}
+                                    flag={countrie.flag}
+                                    />
+                            )})}
+            </div>
         </section>
     )
 }

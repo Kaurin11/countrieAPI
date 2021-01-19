@@ -1,0 +1,45 @@
+@import url("https://fonts.google.com/specimen/Nunito+Sans");
+
+.header {
+  height: 10vh;
+  background-color: $element-light-mode;
+  width: 100%;
+  padding: 5px 0px;
+  box-shadow: 0 0.2rem 0.4rem rgba($color-black, 0.8);
+  color: $text-light-mode;
+
+  &__title {
+    margin-top: 1.5rem;
+    margin-left: 4rem;
+
+    display: inline-block;
+    font-family: "Nunito Sans", sans-serif;
+
+    animation: moveInLogo 0.8s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+
+  &__icon {
+    list-style: none;
+    float: right;
+    padding-right: 4rem;
+    vertical-align: top;
+    margin-top: 0.7rem;
+    &:hover {
+      cursor: pointer;
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+header.dark-mode {
+  background-color: $bg-dark-mode;
+  color: $color-blue;
+  // .card {
+  //   background-color: $grey-dark-mode;
+  //   box-shadow: none;
+  // }
+}

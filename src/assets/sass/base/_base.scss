@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+li,
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: $default-font-size;
+}
+
+//   .mode-button {
+//     cursor: pointer;
+//   }
+
+body {
+  background-color: $bg-light-mode;
+}
+
+body.dark-mode {
+  //transition: all 0.3s;
+  background-color: $bg-dark-mode;
+  color: $white-text;
+  .header {
+    background-color: $element-dark-mode;
+    box-shadow: none;
+    color: $white-text;
+  }
+  .card {
+    background-color: $element-dark-mode;
+    color: $white-text;
+  }
+
+  .search {
+    color: $white-text;
+    input {
+      background-color: $element-dark-mode;
+      color: $white-text;
+      height: 1.1rem;
+    }
+    &__box {
+      background-color: $element-dark-mode;
+      color: $white-text;
+    }
+  }
+
+  .dropdown {
+    option,
+    select {
+      background-color: $element-dark-mode;
+      color: $white-text;
+    }
+  }
+
+  .country {
+    background-color: $bg-dark-mode;
+    color: $white-text;
+
+    &--btn {
+      background-color: $element-dark-mode;
+      color: $white-text;
+    }
+  }
+}

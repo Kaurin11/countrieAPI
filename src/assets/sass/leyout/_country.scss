@@ -1,0 +1,71 @@
+.country {
+  font-size: $detail-font-size;
+  background-color: $light-gray;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+
+  &__flex {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+  }
+
+  &-centar-flag {
+    text-align: center;
+    margin-top: 15rem;
+  }
+  &__flag {
+    width: 45rem;
+    height: 37rem;
+  }
+
+  &--lang {
+    display: inline-flex;
+  }
+
+  &__content {
+    text-align: left;
+    margin-top: 17.5rem;
+
+    &--lang-box {
+      display: inline-block;
+      max-width: 100%;
+      width: fit-content;
+      margin-left: 0.5rem;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    &--border {
+      display: inline-flex;
+    }
+
+    &--border-box {
+      display: inline-block;
+      border-radius: 0.4rem;
+      box-shadow: 0 0.2rem 0.4rem rgba($color-black, 0.8);
+      max-width: 100%;
+      width: fit-content;
+      margin-left: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  &--btn {
+    position: absolute;
+    top: 4rem;
+    left: 15rem;
+    height: 4rem;
+    width: 6rem;
+    border-radius: 0.4rem;
+    text-align: center;
+    border: none;
+    box-shadow: 0 0.2rem 0.4rem rgba($color-black, 0.8);
+    background-color: $color-white;
+    cursor: pointer;
+  }
+}

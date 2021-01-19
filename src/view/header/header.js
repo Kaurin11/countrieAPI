@@ -1,16 +1,15 @@
 import React from 'react' ;
+import ThemeChanger from '../../components/themeChange/themeChange';
 
 const Header = () => {
 
     return(
         <header>
-			<div>
-				<h1>Where in the world?</h1>
-				<button id="toggle">
-					<i className="far fa-moon"></i>
-					<i className="fas fa-moon"></i>
-					Dark Mode
-				</button>
+			<div className="header">
+				<h1 className="header__title">Where in the world?</h1>
+				<ul className="header__icon">
+					<li><ThemeChanger /> </li>
+				</ul>
 			</div>
 		</header>
     )

@@ -3,7 +3,7 @@ import React from 'react';
 const Dropdown = ({onClick}) => {
 
     return(
-        <form>
+        <form className="dropdown">
             <select onClick={onClick}>
                 <option value=''>All</option>
                 <option value="Africa">Africa</option>

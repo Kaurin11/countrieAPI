@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useRouteMatch } from 'react-router';
+import { useRouteMatch } from 'react-router';
 import Countrie from '../../components/countrie/countrie';
 import { oneCountrieUrl } from '../../constants/services/services';
+import Header from '../header/header';
 
 const CountrieInfo = () => {
     const [countrieInfo, setCountrieInfo] = useState([]);
-    const match = useRouteMatch()
-    const history = useHistory()
-
+    const match = useRouteMatch();
+    
     useEffect(() => {
         getData();
     }, [])
@@ -24,7 +24,8 @@ const CountrieInfo = () => {
     }
 
     return (
-        <div>
+        <section>
+            <Header />
             {countrieInfo.map((countrie) => {
                 return(
                     <Countrie
@@ -44,7 +45,7 @@ const CountrieInfo = () => {
                 )
             })}
 
-        </div>
+        </section>
     )
 }
 

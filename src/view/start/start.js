@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import Button from '../../components/button/button';
 import { getMainViewRoute } from '../../constants/routes/routes';
 
 const Start = () => {
@@ -11,9 +12,11 @@ const Start = () => {
     }
 
     return(
-        <section>
-            <div>
-                <button onClick={getStartHandler} >Start </button>
+        <section className="section-start">
+            <div className="section-start__content">
+                <ion-icon size="large" name="earth-outline"></ion-icon>
+                <Button className="btn btn--start u-margin-top-medium"
+                        onClick={getStartHandler} name={'START'}/>
             </div>
         </section>
     )
