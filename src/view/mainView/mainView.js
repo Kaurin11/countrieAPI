@@ -17,59 +17,57 @@ const MainView = () => {
     }, [region]);
 
     useEffect(() => {
-        if (search) {
-            const searched = countries.filter(country => {
-                return country.name.toLowerCase().includes(search.toLowerCase())
-             })
-
-             setCountries(searched)
-        }
+        fetchData().then(() => {
+          if (search) {
+            const searchedCountries = countries.filter(({name}) => name.toLowerCase().includes(search.toLowerCase()));
+            console.log('kako')
+            console.log(countries)
+            setCountries(searchedCountries)
+          }
+        })
     }, [search]);
 
-    // useEffect(() => {
-    //     if(search === ''){
-    //         fetchData();
-    //     }
-    // },[]);
-
-    const fetchData = () => {
+    const fetchData =async () => {
         if (region === '' || region === 'All') {
-            getData();
-        } else {
-            getRegionCountrie()
-        }
-    }
-
-    const getData = async() => {
-        try{
             const {data} = await allCountriesUrl();
             setCountries(data);
-            console.log(data);
-        }catch(err){
-            console.log(err)
+        } else {
+            const{data} = await regionUrl(region);
+            setCountries(data);
         }
     }
+
+    //aa
+
+    // const getData = async() => {
+    //     try{
+    //         const {data} = await allCountriesUrl();
+    //         setCountries(data);
+    //         console.log(data);
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // }
+
+    // const getRegionCountrie =async() => {
+    //     try{
+    //         const{data} = await regionUrl(region);
+    //         setCountries(data);
+    //         console.log(data)
+    //     }catch(err){
+    //         console.log(err);
+    //     }
+    // }
 
     const searchHandler = (e) => {
         setSearch(e.target.value);
     }
-
 
     const regionHandler = (e) => {
         setRegion(e.target.value.toLowerCase())
         console.log(region)
     }
 
-    const getRegionCountrie =async() => {
-        try{
-            const{data} = await regionUrl(region);
-            setCountries(data);
-            console.log(data)
-        }catch(err){
-            console.log(err);
-        }
-    }
-    
     return(
     
         <section className="section-main">
