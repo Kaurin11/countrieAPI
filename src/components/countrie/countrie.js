@@ -25,8 +25,8 @@ const Countrie = ({flag,nativeName,name,region,population,capital, subregion, to
                 <div className="col-1-of-2 country-centar-flag">
                     <img className="country__flag" src={flag} alt="Country flag"/>
                 </div>
-                <div className="col-1-of-2 country__content">
-                <h1 className="u-margin-bottom-small">{name}</h1>
+                <div className="col-1-of-2 country__content ">
+                <h1 className="u-margin-bottom-small country__content--name">{name}</h1>
                     <div className="row">
                         <div className="col-1-of-2">
                             <p><strong>Nativ Name:</strong> {nativeName}</p>

@@ -47,3 +47,10 @@
     );
   }
 }
+
+@media screen and (max-width: 375px) {
+  .col-1-of-2 {
+    width: 10rem;
+    display: block;
+  }
+}

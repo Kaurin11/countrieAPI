@@ -1,5 +1,5 @@
 .dropdown {
-  margin-right: 10rem;
+  margin-right: 7rem;
   margin-top: 3rem;
   float: right;
   height: 2rem;
@@ -7,5 +7,13 @@
   select {
     border-radius: 0.5rem;
     height: 5rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .dropdown {
+    // float: left;
+    // margin-left: 2rem;
+    margin-right: 23.5rem;
   }
 }

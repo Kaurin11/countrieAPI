@@ -26,11 +26,11 @@ const MainView = () => {
         }
     }, [search]);
 
-    useEffect(() => {
-        if(search === ''){
-            fetchData();
-        }
-    },[]);
+    // useEffect(() => {
+    //     if(search === ''){
+    //         fetchData();
+    //     }
+    // },[]);
 
     const fetchData = () => {
         if (region === '' || region === 'All') {

@@ -1,6 +1,6 @@
 .country {
   font-size: $detail-font-size;
-  background-color: $light-gray;
+  background-color: $bg-light-mode;
   height: 100vh;
   background-size: cover;
   position: relative;
@@ -26,7 +26,12 @@
 
   &__content {
     text-align: left;
-    margin-top: 17.5rem;
+    margin-top: 17rem;
+
+    &--name {
+      font-size: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
 
     &--lang-box {
       display: inline-block;
@@ -37,7 +42,7 @@
     }
 
     p {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     &--border {
@@ -67,5 +72,43 @@
     box-shadow: 0 0.2rem 0.4rem rgba($color-black, 0.8);
     background-color: $color-white;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .country {
+    background-color: $bg-light-mode;
+    &__flag {
+      width: 30rem;
+      height: 20rem;
+      // margin-left: 2.5rem;
+      // margin-top: -2rem;
+
+      position: absolute;
+      top: 12rem;
+      left: 3rem;
+    }
+
+    &--btn {
+      position: absolute;
+      top: 2rem;
+      left: 3rem;
+    }
+
+    &__content {
+      position: absolute;
+      top: 20rem;
+      left: 3rem;
+      display: table;
+
+      &--name {
+        font-size: 2.5rem;
+      }
+    }
+
+    &--lang {
+      display: block;
+      //margin-left: 0.5rem;
+    }
   }
 }
