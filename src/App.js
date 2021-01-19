@@ -1,9 +1,13 @@
-import './App.css';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import {getMainViewRoute, getOneCountriRoute, getStartRoute } from './constants/routes/routes';
-import Start from './view/start/start';
-import MainView from './view/mainView/mainView';
-import CountrieInfo from './view/countrieInfo/countrieInfo';
+import "./App.css";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import {
+  getCountrieHomeRoute,
+  getOneCountriRoute,
+  getStartRoute,
+} from "./constants/routes/routes";
+import Start from "./view/start/start";
+import CountrieHome from "./view/countrieHome/countrieHome";
+import CountrieDetail from "./view/countrieDetail/countrieDetail";
 
 function App() {
   return (
@@ -11,8 +15,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path={getStartRoute()} component={Start} />
-          <Route exact path={getMainViewRoute()} component={MainView} />
-          <Route path={getOneCountriRoute()} component={CountrieInfo} />
+          <Route exact path={getCountrieHomeRoute()} component={CountrieHome} />
+          <Route path={getOneCountriRoute()} component={CountrieDetail} />
           <Redirect to={getStartRoute()} />
         </Switch>
       </BrowserRouter>

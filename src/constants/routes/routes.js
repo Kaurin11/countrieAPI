@@ -1,6 +1,7 @@
-export const getStartRoute = () => '/start';
+export const getStartRoute = () => "/start";
 
-export const getMainViewRoute = () => '/mainView';
+export const getCountrieHomeRoute = () => "/countrieHome";
 
 export const getOneCountriRoute = () => `/countrie/:name`;
-export const getGenerteOneCountrieRoute = (name) => getOneCountriRoute().replace(':name', name);
+export const getGenerteOneCountrieRoute = (name) =>
+  getOneCountriRoute().replace(":name", name);
