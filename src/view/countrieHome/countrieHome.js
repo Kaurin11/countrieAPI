@@ -31,7 +31,7 @@ const CountrieHome = () => {
       const apiFunction =
         region === "" || region === "All" ? allCountriesUrl : regionUrl;
       try {
-        const { data } = await apiFunction();
+        const { data } = await apiFunction(region);
         setCountries(data);
         resolve(data);
       } catch (err) {

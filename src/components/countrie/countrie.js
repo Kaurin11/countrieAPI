@@ -27,7 +27,7 @@ const Countrie = ({
       <div className="row">
         <h1>
           <button className="country--btn" onClick={goBackHandler}>
-            <ion-icon name="arrow-back-outline"></ion-icon>Back
+            <ion-icon name="arrow-back-outline"></ion-icon>   Back
           </button>
         </h1>
         <div className="col-1-of-2 country-centar-flag">
