@@ -27,7 +27,7 @@ const CountrieDetail = () => {
     <section>
       <Header />
       {countrieInfo.map((countrie) => {
-        return (
+        return ( 
           <Countrie
             key={countrie.name}
             name={countrie.name}

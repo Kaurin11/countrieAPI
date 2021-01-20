@@ -9,3 +9,6 @@ export const oneCountrieUrl = (name) =>
 
 export const regionUrl = (region) =>
   Axios.get(`${baseRequest}/region/${region}`);
+
+export const borderCountriUrl = (code) =>
+  Axios.get(`${baseRequest}/alpha/${code}`);

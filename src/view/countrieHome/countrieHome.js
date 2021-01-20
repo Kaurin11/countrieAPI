@@ -43,6 +43,8 @@ const CountrieHome = () => {
     });
   };
 
+  console.log(countries)
+
   const searchHandler = (e) => {
     setSearch(e.target.value);
   };

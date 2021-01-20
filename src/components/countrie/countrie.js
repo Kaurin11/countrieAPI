@@ -1,7 +1,7 @@
 import React from "react";
 import NumberFormat from "react-number-format";
 import { useHistory } from "react-router";
-import { getCountrieHomeRoute } from "../../constants/routes/routes";
+import { getCountrieHomeRoute, getGenerteCountrieByLetterRoute } from "../../constants/routes/routes";
 
 const Countrie = ({
   flag,
@@ -22,12 +22,17 @@ const Countrie = ({
     history.push(getCountrieHomeRoute());
   };
 
+  const selectCountryHandler = (border) => {
+    var lowerCaseName = border.toLowerCase();
+    history.push(getGenerteCountrieByLetterRoute(lowerCaseName));
+  };
+
   return (
     <section className="country">
       <div className="row">
         <h1>
           <button className="country--btn" onClick={goBackHandler}>
-            <ion-icon name="arrow-back-outline"></ion-icon>   Back
+            <ion-icon name="arrow-back-outline"></ion-icon> Back
           </button>
         </h1>
         <div className="col-1-of-2 country-centar-flag">
@@ -61,7 +66,7 @@ const Countrie = ({
               </p>
             </div>
             <div className="col-1-of-2">
-              <p>
+              <p className="country__content--domain">
                 <strong>Top Level Domain:</strong> {topLevelDomain}
               </p>
               <p>
@@ -86,7 +91,12 @@ const Countrie = ({
             {borders.map((border) => {
               return (
                 <ul key={border}>
-                  <span className="country__content--border-box">{border}</span>
+                  <span
+                    className="country__content--border-box"
+                    onClick={() => selectCountryHandler(border)}
+                  >
+                    {border}
+                  </span>
                 </ul>
               );
             })}
