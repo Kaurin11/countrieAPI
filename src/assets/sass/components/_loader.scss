@@ -1,0 +1,40 @@
+.loader {
+  border: 2rem solid #d3d3d3;
+  border-top: 2rem solid #3498db;
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  animation: spin 2s linear infinite;
+
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .loader {
+    border: 1rem solid #d3d3d3; /* Light grey */
+    border-top: 1rem solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    animation: spin 2s linear infinite;
+
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

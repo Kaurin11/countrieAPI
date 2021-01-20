@@ -10,6 +10,7 @@ const CountrieHome = () => {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     fetchData();
@@ -34,6 +35,7 @@ const CountrieHome = () => {
         const { data } = await apiFunction(region);
         setCountries(data);
         resolve(data);
+        setLoader(false);
       } catch (err) {
         console.error(err);
         reject(err);
@@ -53,22 +55,28 @@ const CountrieHome = () => {
     <section className="section-main">
       <Header />
       <SearchBox placeholder="Search for Country..." onChange={searchHandler} />
-
       <Dropdown onClick={regionHandler} />
-      <div className="flex">
-        {countries.map((countrie) => {
-          return (
-            <AllCountries
-              key={countrie.name}
-              name={countrie.name}
-              capital={countrie.capital}
-              region={countrie.region}
-              population={countrie.population}
-              flag={countrie.flag}
-            />
-          );
-        })}
-      </div>
+
+      {loader ? (
+        <div className="loader"></div>
+      ) : (
+        <div>
+          <div className="flex">
+            {countries.map((countrie) => {
+              return (
+                <AllCountries
+                  key={countrie.name}
+                  name={countrie.name}
+                  capital={countrie.capital}
+                  region={countrie.region}
+                  population={countrie.population}
+                  flag={countrie.flag}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
