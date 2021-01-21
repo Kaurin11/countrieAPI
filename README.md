@@ -2,9 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## **Prerequisite**
+
+Install Node.js
+
+Install Visual Studio Code (IDE)
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+`npm install` (in package directory, no arguments):
+
+Install the dependencies in the local node_modules folder.
+
+By default, `npm install` will install all modules listed as dependencies in [`package.json`](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
 
 ### `npm start`
 
