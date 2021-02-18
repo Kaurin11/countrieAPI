@@ -9,13 +9,11 @@
 
 @import "components/card";
 @import "components/button";
-@import "components/search";
-@import "components/dropdown";
 @import "components/loader";
 
-@import "leyout/flex";
+@import "leyout/search";
 @import "leyout/header";
-@import "leyout/grid";
-@import "leyout/country";
+@import "leyout/countries";
+@import "leyout/country-info";
 
 @import "page/home";

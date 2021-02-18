@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
 import { useHistory, useRouteMatch } from "react-router";
+import Button from "../../components/button/button";
 import {
   getGenerteCountrieByLetterRoute,
   getCountrieHomeRoute,
@@ -47,86 +48,63 @@ const BorderCountrie = () => {
     <div>
       <Header />
       {borderCountry && (
-        <div key={borderCountry.flag + borderCountry.name} className="country">
-          <div className="row">
-            <h1>
-              <button className="country--btn" onClick={goHomeHandler}>
-                <ion-icon name="arrow-back-outline"></ion-icon>HOME
-              </button>
-            </h1>
-            <div className="col-1-of-2 country-centar-flag">
-              <img className="country__flag" src={borderCountry.flag}></img>
-            </div>
-            <div className="col-1-of-2 country__content">
-              <h1 className="u-margin-bottom-small">{borderCountry.name}</h1>
-              <div className="row">
-                <div className="col-1-of-2">
-                  <p>
-                    <strong>Nativ Name:</strong>
-                    {borderCountry.nativeName}
-                  </p>
-                  <p>
-                    <strong>Population: </strong>{" "}
-                    <NumberFormat
-                      value={borderCountry.population}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                    />
-                  </p>
-                  <p>
-                    <strong>Region:</strong> {borderCountry.region}
-                  </p>
-                  <p>
-                    <strong>Subregion:</strong> {borderCountry.subregion}
-                  </p>
-                  <p>
-                    <strong>Capital:</strong> {borderCountry.capital}
-                  </p>
+        <div key={borderCountry.flag + borderCountry.name} className="country-detail">
+        <Button className="country-detail__btn country--btn" onClick={goHomeHandler} name="&larr; HOME" />
+            <div className="country-info">
+              <img className="country-info__flag" alt="flag" src={borderCountry.flag}></img>
+              <div className="country-info__content">
+                <div className="country-info__name"><p>{borderCountry.name}</p></div>
+                <div className="country-info__detail">
+                  <div className="country-info__detail--1">
+                    <p><strong>Nativ Name:</strong>{borderCountry.nativeName}</p>
+                    <p>
+                      <strong>Population: </strong>{" "}
+                      <NumberFormat
+                        value={borderCountry.population}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                      />
+                    </p>
+                    <p>
+                      <strong>Region:</strong> {borderCountry.region}
+                    </p>
+                    <p>
+                      <strong>Subregion:</strong> {borderCountry.subregion}
+                    </p>
+                    <p>
+                      <strong>Capital:</strong> {borderCountry.capital}
+                    </p>
+                  </div>
+                  <div className="country-info__detail--2">
+                    <p>
+                      <strong>Top Level Domain:</strong>{" "}
+                      {borderCountry.topLevelDomain}
+                    </p>
+                    <p>
+                      <strong>Currencies:</strong>{" "}
+                      {borderCountry.currencies.map((cur) => cur.name)}
+                    </p>
+                    <p>
+                      <strong>Languages:</strong>
+                      {borderCountry.languages.map((lang) => {
+                        return (<span key={lang.name}>{lang.name}</span>);})}{" "}</p>
+                  </div>
                 </div>
-                <div className="col-1-of-2">
-                  <p className="country__content--domain">
-                    <strong>Top Level Domain:</strong>{" "}
-                    {borderCountry.topLevelDomain}
-                  </p>
-                  <p>
-                    <strong>Currencies:</strong>{" "}
-                    {borderCountry.currencies.map((cur) => cur.name)}
-                  </p>
-                  <p className="country--lang">
-                    <strong>Languages:</strong>
-                    {borderCountry.languages.map((lang) => {
-                      return (
-                        <span
-                          className="country__content--lang-box"
-                          key={lang.name}
-                        >
-                          {lang.name}
-                        </span>
-                      );
-                    })}{" "}
-                  </p>
-                </div>
-              </div>
-              <div className="country__content--border">
-                <p>
+                <div className="country-info__border">
                   <strong>Border Countrie:</strong>
-                </p>
-                {borderCountry.borders.map((border) => {
-                  return (
-                    <ul key={border}>
-                      <span
-                        onClick={() => selectCountryHandler(border)}
-                        className="country__content--border-box"
-                      >
-                        <p>{border}</p>
-                      </span>
-                    </ul>
-                  );
-                })}
+                  {borderCountry.borders.map((border) => {
+                    return (
+                      <ul key={border}>
+                        <span  onClick={() => selectCountryHandler(border)}>
+                          <p className="country-info__border--box">{border}</p>
+                        </span>
+                      </ul>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
       )}
     </div>
   );

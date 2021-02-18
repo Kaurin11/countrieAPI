@@ -5,3 +5,8 @@
     display: table;
   }
 }
+
+@mixin response($breakpoint){
+  @if $breakpoint == phone { @media (max-width:375px){@content};}
+  @if $breakpoint == tab-port { @media (max-width:600px){@content};}
+}

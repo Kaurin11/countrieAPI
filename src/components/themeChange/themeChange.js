@@ -19,13 +19,16 @@ const ThemeChanger = () => {
   });
   return (
     <div>
-      <div className="header__mode" onClick={handleChange}>
+      <div onClick={handleChange}>
         {themeState ? (
-          <ion-icon size="large" name="sunny-outline"></ion-icon>
+            <div className="header__box-icon">
+                  <ion-icon size="small" name="sunny-outline"></ion-icon>
+                <p>Light mode</p> </div>
+            
         ) : (
-          <ion-icon size="large" name="moon-outline">
-            {" "}
-          </ion-icon>
+            <div className="header__box-icon"> 
+                  <ion-icon size="small" name="moon-outline"></ion-icon>
+               <p>Night mode </p>  </div>
         )}
       </div>
     </div>

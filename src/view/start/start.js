@@ -14,6 +14,8 @@ const Start = () => {
     <section className="section-start">
       <div className="section-start__content">
         <ion-icon size="large" name="earth-outline"></ion-icon>
+
+
         <Button
           className="btn btn--start u-margin-top-medium"
           onClick={getStartHandler}

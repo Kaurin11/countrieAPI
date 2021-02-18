@@ -6,22 +6,15 @@
   font-size: $card-font-size;
   color: $text-light-mode;
 
-  width: 22rem;
-  height: 24.5rem;
-  background-size: 100% 100%;
+  width: 30rem;
+  
+  margin: 2.5rem 2rem;
 
   transition: transform 0.3s ease;
 
-  margin: 4.5rem;
-  // &:not(:last-child) {
-  //   margin-left: 4.5rem;
-  //   margin-right: 4.5rem;
-  //   margin-bottom: 4.5rem;
-  // }
-
   &__flag {
-    width: 22rem;
-    height: 10rem;
+    width: 100%;
+    height: 14rem;
   }
 
   &:hover {
@@ -31,24 +24,16 @@
   }
 
   &__name {
-    margin: 1.2rem;
+    margin: 1.5rem;
   }
 
   &__content {
-    margin: 1.2rem;
+    margin: 3rem 1.5rem ;
   }
 
   p {
-    margin-bottom: 0.3rem;
+    margin-bottom: 5px;
   }
 }
 
-@media screen and (max-width: 375px) {
-  .card {
-    margin-bottom: -1rem;
-    margin-left: 6.5rem;
-  }
-  .card:first-child {
-    margin-top: 10rem;
-  }
-}
+

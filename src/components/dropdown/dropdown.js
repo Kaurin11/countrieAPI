@@ -2,9 +2,9 @@ import React from "react";
 
 const Dropdown = ({ onClick }) => {
   return (
-    <form className="dropdown">
+    <form className="search__dropdown">
       <select onClick={onClick}>
-        <option value="">All</option>
+        <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
         <option value="Asia">Asia</option>

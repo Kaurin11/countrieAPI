@@ -24,3 +24,18 @@
     text-align: center;
   }
 }
+
+.country-detail{
+  position: relative;
+
+  &__btn {
+    position: absolute;
+    top: 3rem;
+    left: 10rem;
+
+    @include response(tab-port){
+      top: 2rem;
+      left: 3rem;
+   }
+  }
+}

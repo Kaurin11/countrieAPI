@@ -54,32 +54,33 @@ const CountrieHome = () => {
   };
 
   return (
-    <section className="section-main">
-      <Header />
-      <SearchBox placeholder="Search for Country..." onChange={searchHandler} />
-      <Dropdown onClick={regionHandler} />
-
-      {loader ? (
-        <div className="loader"></div>
-      ) : (
-        <div>
-          <div className="flex">
-            {countries.map((countrie) => {
-              return (
-                <AllCountries
-                  key={countrie.name}
-                  name={countrie.name}
-                  capital={countrie.capital}
-                  region={countrie.region}
-                  population={countrie.population}
-                  flag={countrie.flag}
-                />
-              );
-            })}
-          </div>
+      <div>
+        <Header />
+        <div className="search">
+          <SearchBox placeholder="Search for Country..." onChange={searchHandler} />
+          <Dropdown onClick={regionHandler} />
         </div>
-      )}
-    </section>
+        <div>
+          {loader ? (
+          <div className="loader"></div>
+            ) : (
+          <div className="countries">
+              {countries.map((countrie) => {
+                return (
+                  <AllCountries
+                    key={countrie.name}
+                    name={countrie.name}
+                    capital={countrie.capital}
+                    region={countrie.region}
+                    population={countrie.population}
+                    flag={countrie.flag}
+                  />
+                );
+              })}
+          </div>
+        )}
+        </div>
+      </div>
   );
 };
 

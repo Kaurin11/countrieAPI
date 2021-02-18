@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBox = ({ placeholder, onChange }) => {
   return (
-    <form className="search">
+    <form>
       <div className="search__box">
         <ion-icon size="large" name="search-circle-outline"></ion-icon>
         <input

@@ -5,11 +5,9 @@ const Header = () => {
   return (
     <header>
       <div className="header">
-        <h1 className="header__title">Where in the world?</h1>
+        <div className="header__title"><p>Where in the world?</p></div>
         <ul className="header__icon">
-          <li>
-            <ThemeChanger />{" "}
-          </li>
+          <ThemeChanger />{" "}
         </ul>
       </div>
     </header>
