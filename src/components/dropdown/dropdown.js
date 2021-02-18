@@ -1,9 +1,9 @@
 import React from "react";
 
-const Dropdown = ({ onClick }) => {
+const Dropdown = ({ onChange, value }) => {
   return (
     <form className="search__dropdown">
-      <select onClick={onClick}>
+      <select value={value} onChange={onChange}>
         <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>

@@ -7,58 +7,77 @@ import Header from "../header/header";
 import "./stylee.scss";
 
 const CountrieHome = () => {
-  const [countries, setCountries] = useState([]);
-  const [search, setSearch] = useState("");
-  const [region, setRegion] = useState("");
-  const [loader, setLoader] = useState(true);
+  const [allCOuntries, setAllCOuntries] = useState([]);
+    const [regionCountries, setRegionCountries] = useState([]);
+    const [useRegion, setUseRegion] = useState(false);
 
-  useEffect(() => {
-    fetchData();
-  }, [region]);
+    const [search, setSearch] = useState('');
+    const [region, setRegion] = useState('All');
 
-  useEffect(() => {
-    fetchData().then((data) => {
-      if (search) {
-        const searchedCountries = data.filter(({ name }) =>
-          name.toLowerCase().includes(search.toLowerCase())
-        );
-        setCountries(searchedCountries);
-      }
-    });
-  }, [search]);
+    const [countries , setCountries] = useState([]);
 
-  const fetchData = async () => {
-    return new Promise(async (resolve, reject) => {
-      const apiFunction =
-        region === "" || region === "All" ? allCountriesUrl : regionUrl;
-      try {
-        const { data } = await apiFunction(region);
-        setCountries(data);
-        resolve(data);
-        setLoader(false);
-      } catch (err) {
-        console.error(err);
-        reject(err);
-      }
-    });
-  };
+    const [loader, setLoader] = useState(true);
 
-  console.log(countries)
+    useEffect(() => {
+        fetchCountry();
+    }, []);
 
-  const searchHandler = (e) => {
-    setSearch(e.target.value);
-  };
+    useEffect(() => {
+        doFilterCountries();
+    },[search]);
 
-  const regionHandler = (e) => {
-    setRegion(e.target.value.toLowerCase());
-  };
+    useEffect(() => {
+        if (!region || region === 'All'){
+            setUseRegion(false)
+        }else{
+            fetchRegionCountries();
+        }
+    },[region]);
+
+    useEffect(() => {
+        doFilterCountries();
+    },[regionCountries, useRegion]);
+
+
+    const fetchCountry = async () => {
+        try{
+            const{data} = await allCountriesUrl();
+            setAllCOuntries(data);
+            setCountries(data);
+            setLoader(false);
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    const fetchRegionCountries = async () => {
+        try{
+            const{data} = await regionUrl(region.toLowerCase());
+            setRegionCountries(data);
+            setUseRegion(true);
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    const doFilterCountries = () => {
+        const countriesForUse = useRegion ? regionCountries : allCOuntries;
+        if(!search){
+            setCountries(countriesForUse)
+        }else{
+            const listForFilter = countriesForUse;
+            const searchCountries = listForFilter.filter(({name}) => name.toLowerCase().includes(search.toLowerCase()))
+            setCountries(searchCountries);
+        }
+
+     }
 
   return (
       <div>
         <Header />
         <div className="search">
-          <SearchBox placeholder="Search for Country..." onChange={searchHandler} />
-          <Dropdown onClick={regionHandler} />
+          <SearchBox value={search} placeholder="Search for Country..."  onChange={({target : {value}}) => setSearch(value)} />
+          <Dropdown value={region} onChange={event => { setRegion(event.target.value)}} />
         </div>
         <div>
           {loader ? (
